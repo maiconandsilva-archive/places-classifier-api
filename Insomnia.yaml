@@ -1,0 +1,237 @@
+_type: export
+__export_format: 4
+__export_date: 2020-12-07T23:05:01.791Z
+__export_source: insomnia.desktop.app:v2020.5.1
+resources:
+  - _id: req_ceb5ab26c4f542b9834bef067cf74cbf
+    parentId: fld_347a5e799d7249dc949b148e4b5e358b
+    modified: 1607382146303
+    created: 1606992690597
+    url: http://localhost:8080/graphql/
+    name: Ranking
+    description: ""
+    method: POST
+    body:
+      mimeType: application/graphql
+      text: '{"query":"query Ranking(\n  $tipoAvaliacao1:
+        TipoAvaliacaoInput,\n  $tipoAvaliacao2:
+        TipoAvaliacaoInput,\n  $tipoAvaliacao3:
+        TipoAvaliacaoInput,\n  $tipoAvaliacao4: TipoAvaliacaoInput\n)
+        {\n  localizacao: rankingOf(tipoAvaliacao: $tipoAvaliacao1)
+        {\n    rank\n    numeroNotas\n    estabelecimento
+        {\n      nome\n    }\n  }\n  estacionamento: rankingOf(tipoAvaliacao:
+        $tipoAvaliacao2) {\n    rank\n    numeroNotas\n    estabelecimento
+        {\n      nome\n    }\n  }\n  qualidadeProdutos: rankingOf(tipoAvaliacao:
+        $tipoAvaliacao3) {\n    rank\n    numeroNotas\n    estabelecimento
+        {\n      nome\n    }\n  }\n  preco:  rankingOf(tipoAvaliacao:
+        $tipoAvaliacao4) {\n    rank\n    numeroNotas\n    estabelecimento
+        {\n      nome\n    }\n  }\n}","variables":{"tipoAvaliacao1":{"id":1},"tipoAvaliacao2":{"id":2},"tipoAvaliacao3":{"id":3},"tipoAvaliacao4":{"id":4}},"operationName":"Ranking"}'
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_85f0e36e985149849b291dddfbb92b89
+    authentication: {}
+    metaSortKey: -1605180762320
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_347a5e799d7249dc949b148e4b5e358b
+    parentId: wrk_5aa3732865da4e5b9d35d047b5d122b2
+    modified: 1606992690532
+    created: 1606992690532
+    name: classificacao estabelecimentos
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1605178330613
+    _type: request_group
+  - _id: wrk_5aa3732865da4e5b9d35d047b5d122b2
+    parentId: null
+    modified: 1602446561676
+    created: 1602446561676
+    name: Insomnia
+    description: ""
+    scope: null
+    _type: workspace
+  - _id: req_58e0b5aeb7c545aca88125579717790d
+    parentId: fld_347a5e799d7249dc949b148e4b5e358b
+    modified: 1607382035512
+    created: 1606992690567
+    url: http://localhost:8080/graphql/
+    name: Consulta Estabelecimento
+    description: ""
+    method: POST
+    body:
+      mimeType: application/graphql
+      text: '{"query":"query Consulta(\n  $estabelecimento: Int\n#   $usuario:
+        UsuarioInput\n) {\n  listaUsuarios
+        {\n    id\n    nome\n  }\n  avaliacoesPorEstabelecimento(estabelecimentoId:
+        $estabelecimento) {\n    estabelecimento
+        {\n      nome\n      indiceCriminalidade\n      mapUrl\n      endereco
+        {\n        cidade\n        cep\n        coordenadas
+        {\n          latitude\n          longitude\n        }\n      }\n    }\n    tipo
+        {\n      id\n      nome\n      descricao\n    }\n    nota\n    comentario\n  }\n}","variables":{"estabelecimento":2},"operationName":"Consulta"}'
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_884b0b9b1c7d43869ce5f2c70189e822
+    authentication: {}
+    metaSortKey: -1605171106473.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_7feb2ccdb7e04b42b5a4026730fb2527
+    parentId: fld_347a5e799d7249dc949b148e4b5e358b
+    modified: 1607382029143
+    created: 1607381446218
+    url: http://localhost:8080/graphql/
+    name: Todos Estabelecimentos
+    description: ""
+    method: POST
+    body:
+      mimeType: application/graphql
+      text: '{"query":"query Consulta {\ntodosEstabelecimentos
+        {\n    id\n    nome\n    indiceCriminalidade\n    mapUrl\n    tipo
+        {\n      id\n      nome\n      descricao\n    }\n    endereco
+        {\n      cidade\n    }\n  }\n} \n\n","operationName":"Consulta"}'
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_884b0b9b1c7d43869ce5f2c70189e822
+    authentication: {}
+    metaSortKey: -1605171106454.75
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_4807540050334b138683e0df5b9a0325
+    parentId: fld_347a5e799d7249dc949b148e4b5e358b
+    modified: 1607382022857
+    created: 1606992690610
+    url: http://localhost:8080/graphql/
+    name: Avaliacao
+    description: ""
+    method: POST
+    body:
+      mimeType: application/graphql
+      text: '{"query":"mutation AvaliarEstabelecimento($avaliacao: AvaliacaoInput)
+        {\n  avaliarEstabelecimento(avaliacao:
+        $avaliacao)\n}","variables":{"avaliacao":{"tipo":{"id":2},"usuario":{"id":1},"nota":2,"comentario":"Me
+        surpreendeu!","estabelecimento":{"id":2}}},"operationName":"AvaliarEstabelecimento"}'
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_2f9df278e30c4b63970fc3c2eb26cda7
+    authentication: {}
+    metaSortKey: -1605171106401.625
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_a30e141336d54be19fee1e528749206f
+    parentId: fld_347a5e799d7249dc949b148e4b5e358b
+    modified: 1607381975689
+    created: 1606992690627
+    url: http://localhost:8080/graphql/
+    name: cadastrar estabelecimento
+    description: ""
+    method: POST
+    body:
+      mimeType: application/graphql
+      text: '{"query":"mutation CadastrarEstabelecimento($estabelecimento:
+        EstabelecimentoInput) {\n  adicionarNovoEstabelecimento(estabelecimento:
+        $estabelecimento)\n}","variables":{"estabelecimento":{"tipo":{"id":3,"nome":"  "},"nome":"Lanchonete
+        Caseira","endereco":{"cep":"1232223","cidade":"AINDA
+        TESTANDO","bairro":"TESTE","logradouro":"OKAY
+        TESTANDOO","numero":1232,"coordenadas":{"latitude":"12312312","longitude":"213213213"}}}},"operationName":"CadastrarEstabelecimento"}'
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_56a045c941fe420c8e104984877ec722
+    authentication: {}
+    metaSortKey: -1605171106348.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_af69145eafd34227aa50d61e90c95f7d
+    parentId: fld_347a5e799d7249dc949b148e4b5e358b
+    modified: 1607381972556
+    created: 1606992690583
+    url: http://localhost:8080/graphql/
+    name: Cadastrar Usuario
+    description: ""
+    method: POST
+    body:
+      mimeType: application/graphql
+      text: '{"query":"mutation CadastrarUsuario($usuario: UsuarioInput)
+        {\n  criarUsuario(usuario:
+        $usuario)\n}\n","variables":{"usuario":{"nome":"Leoncio"}},"operationName":"CadastrarUsuario"}'
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_b33e7e52eba2471c98c81540c8af01fd
+    authentication: {}
+    metaSortKey: -1605171106323.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_e6a2378bcc697cbd2d12e1f21f221da364feba87
+    parentId: wrk_5aa3732865da4e5b9d35d047b5d122b2
+    modified: 1602446561774
+    created: 1602446561774
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1602446561774
+    _type: environment
+  - _id: jar_e6a2378bcc697cbd2d12e1f21f221da364feba87
+    parentId: wrk_5aa3732865da4e5b9d35d047b5d122b2
+    modified: 1602448938255
+    created: 1602446561780
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_6f0684fe2a804b00a4e85ac2f8f1d92d
+    parentId: wrk_5aa3732865da4e5b9d35d047b5d122b2
+    modified: 1602446561678
+    created: 1602446561678
+    fileName: Insomnia
+    contents: ""
+    contentType: yaml
+    _type: api_spec

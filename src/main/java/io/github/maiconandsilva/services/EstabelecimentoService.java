@@ -21,6 +21,11 @@ public class EstabelecimentoService {
         estabelecimento.persist();
         return estabelecimento.id;
     }
+
+    @Query
+    public List<Estabelecimento> getTodosEstabelecimentos() {
+        return Estabelecimento.findAll().list();
+    }
     
     @Query
     public List<Avaliacao> getAvaliacoesPorEstabelecimento(
